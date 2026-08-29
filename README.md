@@ -1,6 +1,6 @@
 # TaskNotes Color Tags
 
-Colors [TaskNotes](https://github.com/callumalpass/tasknotes) tasks by a tag, across the calendar, agenda, kanban and list views.
+Colors [TaskNotes](https://github.com/callumalpass/tasknotes) tasks by a color-name tag, across the calendar, agenda, kanban and list views.
 
 ---
 

@@ -17,6 +17,8 @@ concurrency:
 
 permissions:
   contents: write
+  id-token: write
+  attestations: write
 
 jobs:
   release:
@@ -60,6 +62,14 @@ jobs:
 
       - run: npm ci
       - run: npm run build
+
+      - name: Attest release asset provenance
+        uses: actions/attest-build-provenance@v3
+        with:
+          subject-path: |
+            main.js
+            manifest.json
+            styles.css
 
       - name: Release
         env:
