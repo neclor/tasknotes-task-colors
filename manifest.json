@@ -1,10 +1,10 @@
 {
-  "id": "tasknotes-color-tags",
-  "name": "TaskNotes Color Tags",
-  "version": "1.0.0",
-  "minAppVersion": "1.13.0",
-  "description": "Colors TaskNotes tags across calendar, agenda, kanban and list views using a Tailwind-based palette.",
-  "author": "neclor",
-  "authorUrl": "https://github.com/neclor",
-  "isDesktopOnly": false
+	"id": "tasknotes-color-tags",
+	"name": "TaskNotes Color Tags",
+	"version": "1.0.1",
+	"minAppVersion": "1.13.0",
+	"description": "Colors TaskNotes tags across calendar, agenda, kanban and list views using a Tailwind-based palette.",
+	"author": "neclor",
+	"authorUrl": "https://github.com/neclor",
+	"isDesktopOnly": false
 }
