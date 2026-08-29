@@ -2,9 +2,7 @@ name: Release
 
 on:
   push:
-    branches: [main]
-    tags: ['[0-9]+.[0-9]+.[0-9]+']
-  workflow_dispatch:
+    tags: ["[0-9]+.[0-9]+.[0-9]+"]
 
 permissions:
   contents: write
@@ -22,16 +20,19 @@ jobs:
       - run: npm ci
       - run: npm run build
 
-      - name: Check tag matches manifest version
+      - name: Verify tag matches manifest version
         run: |
-          tag="${GITHUB_REF#refs/tags/}"
           manifest=$(node -p "require('./manifest.json').version")
-          [ "$tag" = "$manifest" ] || { echo "tag $tag != manifest $manifest"; exit 1; }
+          if [ "$GITHUB_REF_NAME" != "$manifest" ]; then
+            echo "::error::tag '$GITHUB_REF_NAME' != manifest version '$manifest'"
+            exit 1
+          fi
 
       - name: Create draft release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          tag="${GITHUB_REF#refs/tags/}"
-          gh release create "$tag" --title "$tag" --draft \
+          gh release create "$GITHUB_REF_NAME" \
+            --title "$GITHUB_REF_NAME" \
+            --draft \
             main.js manifest.json styles.css
