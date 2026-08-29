@@ -15,7 +15,7 @@ Colors [TaskNotes](https://github.com/callumalpass/tasknotes) tasks by a color-n
 
 ## Download
 
-Requires the **TaskNotes** plugin and Obsidian **1.13+**.
+Requires the [**TaskNotes**](https://github.com/callumalpass/tasknotes) plugin and Obsidian **1.13+**.
 
 - [TaskNotes Color Tags](https://obsidian.md/plugins?id=tasknotes-color-tags)
 - [GitHub](https://github.com/neclor/tasknotes-color-tags)
