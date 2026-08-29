@@ -1,41 +1,56 @@
 # TaskNotes Color Tags
 
-[![CI](https://github.com/neclor/tasknotes-color-tags/actions/workflows/lint.yml/badge.svg)](https://github.com/neclor/tasknotes-color-tags/actions/workflows/lint.yml)
+Colors [TaskNotes](https://github.com/callumalpass/tasknotes) tasks by a tag, across the calendar, agenda, kanban and list views.
 
-Colors [TaskNotes](https://github.com/callumalpass/tasknotes) tasks by their tag,
-using a Tailwind-based palette, across the calendar, agenda, kanban and list views.
+---
 
-Tag a note `#red`, `#blue`, `#zinc`, … and its task gets a matching tint and
-border. Only palette color names are used; other tags are ignored.
+## Contents
+
+- [Download](#download)
+- [Usage](#usage)
+- [Settings](#settings)
+- [Screenshots](#screenshots)
+
+---
+
+## Download
+
+Requires the **TaskNotes** plugin and Obsidian **1.13+**.
+
+- [TaskNotes Color Tags](https://obsidian.md/plugins?id=tasknotes-color-tags)
+- [GitHub](https://github.com/neclor/tasknotes-color-tags)
+
+---
+
+## Usage
+
+1. Enable the plugin. By default all four views are colored.
+2. Give a task note a color tag - `#red`, `#blue`, `#zinc`, … (any [Tailwind color name](https://tailwindcss.com/docs/colors)).
+   The task is tinted with that color everywhere it appears.
+3. Or set it from the UI: **right‑click a task → Set color**, pick from the list, or *Remove color*.
+
+Only recognized color names are used; other tags are ignored. If a task has several color tags, the last one wins.
+
+---
 
 ## Settings
 
-**Views** — one toggle each: Agenda, Calendar, Kanban, List.
-Turn a view on to color its tasks; off to leave it untouched.
+| Setting | Default | What it does |
+| --- | --- | --- |
+| **Tag prefix** | *(empty)* | Restrict color tags to this prefix (e.g. `tnct-` → only `#tnct-red` counts). |
+| **Agenda / Calendar / Kanban / List** | on | Toggle coloring per view. |
+| **Priority stripe** | on | Keep the calendar event's left edge in its priority color. |
 
-**Priority stripe** — keep the left edge of each task in its priority color.
-When off, the left edge uses the tag color too.
+---
 
-## How it works
+## Screenshots
 
-- A small DOM watcher stamps `tnct-task-<view>` and `tnct-tag-<color>` classes
-  onto each task element.
-- `styles.css` does the coloring, gated by body classes the plugin toggles from
-  its settings.
+| Agenda | Calendar | Kanban | List |
+| --- | --- | --- | --- |
+| ![Agenda](media/agenda.png) | ![Calendar](media/calendar.png) | ![Kanban](media/kanban.png) | ![List](media/list.png) | ![Color picker](media/picker.png) |
 
-## Develop
+| Settings | Color picker |
+| --- | --- |
+| ![Agenda](media/settings.png) | ![Color picker](media/colors.png) |
 
-```bash
-npm install
-npm run dev      # esbuild watch -> main.js
-npm run build    # tsc check + production bundle
-npm run lint
-```
-
-## Install manually
-
-Copy `main.js`, `manifest.json` and `styles.css` into
-`<vault>/.obsidian/plugins/tasknotes-color-tags/`, then enable the plugin in
-**Settings → Community plugins**.
-
-Requires Obsidian 1.13.0+.
+---

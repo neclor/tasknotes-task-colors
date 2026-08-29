@@ -1,7 +1,9 @@
 import { Plugin } from "obsidian";
-import { DEFAULT_SETTINGS, TnctSettings, TnctSettingTab } from "./settings";
-import { TaskMarker } from "./task_marker";
-import { BodyClass } from "./constants";
+import { ENABLED_CLASS, PRIORITY_STRIPE_CLASS } from "./types/dom";
+import { VIEWS } from "./types/views";
+import { DEFAULT_SETTINGS, TnctSettingTab, type TnctSettings } from "./ui/settings";
+import { registerColorMenu } from "./ui/color_menu";
+import { TaskMarker } from "./core/task_marker";
 
 export default class TaskNotesColorTagsPlugin extends Plugin {
     public settings!: TnctSettings;
@@ -10,21 +12,27 @@ export default class TaskNotesColorTagsPlugin extends Plugin {
     public async onload(): Promise<void> {
         await this.loadSettings();
 
-        activeDocument.body.classList.add(BodyClass.Enabled);
+        document.body.classList.add(ENABLED_CLASS);
         this.marker = new TaskMarker(this);
         this.applySettings();
 
+        registerColorMenu(this);
         this.addSettingTab(new TnctSettingTab(this.app, this));
     }
 
     public onunload(): void {
         this.marker?.stop();
-        activeDocument.body.classList.remove(...Object.values(BodyClass));
+        document.body.classList.remove(
+            ENABLED_CLASS,
+            PRIORITY_STRIPE_CLASS,
+            ...VIEWS.map(v => v.bodyClass)
+        );
     }
 
     public async saveSettings(): Promise<void> {
         await this.saveData(this.settings);
         this.applySettings();
+        this.marker.refresh();
     }
 
     private async loadSettings(): Promise<void> {
@@ -35,17 +43,18 @@ export default class TaskNotesColorTagsPlugin extends Plugin {
 
     private applySettings(): void {
         const s: TnctSettings = this.settings;
-        const body: HTMLElement = activeDocument.body;
+        const body: HTMLElement = document.body;
 
-        body.classList.toggle(BodyClass.ColorAgenda, s.colorAgenda);
-        body.classList.toggle(BodyClass.ColorCalendar, s.colorCalendar);
-        body.classList.toggle(BodyClass.ColorKanban, s.colorKanban);
-        body.classList.toggle(BodyClass.ColorList, s.colorList);
-        body.classList.toggle(BodyClass.PriorityStripe, s.priorityStripe);
+        body.classList.toggle(PRIORITY_STRIPE_CLASS, s.priorityStripe);
 
-        const needsMarker: boolean =
-            s.colorAgenda || s.colorCalendar || s.colorKanban || s.colorList;
-        if (needsMarker) {
+        let anyView = false;
+        for (const view of VIEWS) {
+            const enabled: boolean = view.enabled(s);
+            body.classList.toggle(view.bodyClass, enabled);
+            anyView ||= enabled;
+        }
+
+        if (anyView) {
             this.marker.start();
         } else {
             this.marker.stop();

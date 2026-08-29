@@ -1,7 +1,8 @@
 import { App, PluginSettingTab, SettingDefinition, SettingDefinitionItem } from "obsidian";
-import type TaskNotesColorTagsPlugin from "./main";
+import type TaskNotesColorTagsPlugin from "../main";
 
 export interface TnctSettings {
+    tagPrefix: string;
     colorAgenda: boolean;
     colorCalendar: boolean;
     colorKanban: boolean;
@@ -10,6 +11,7 @@ export interface TnctSettings {
 }
 
 export const DEFAULT_SETTINGS: TnctSettings = {
+    tagPrefix: "",
     colorAgenda: true,
     colorCalendar: true,
     colorKanban: true,
@@ -29,6 +31,21 @@ export class TnctSettingTab extends PluginSettingTab {
 
     public getSettingDefinitions(): SettingDefinitionItem[] {
         return [
+            {
+                type: "group",
+                heading: "General",
+                items: [
+                    {
+                        name: "Tag prefix",
+                        desc: "Only tags starting with this prefix are treated as colors. Empty means bare color names like #red.",
+                        control: {
+                            type: "text",
+                            key: "tagPrefix",
+                            placeholder: "e.g. tnct-",
+                        },
+                    },
+                ],
+            },
             {
                 type: "group",
                 heading: "Views",
@@ -74,7 +91,8 @@ export class TnctSettingTab extends PluginSettingTab {
     }
 
     public async setControlValue(key: string, value: unknown): Promise<void> {
-        this.plugin.settings[key as SettingKey] = value as boolean;
+        (this.plugin.settings as unknown as Record<string, unknown>)[key] =
+            value;
         await this.plugin.saveSettings();
     }
 }

@@ -1,6 +1,6 @@
 {
   "name": "tasknotes-color-tags",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Colors TaskNotes tags across calendar, agenda, kanban and list views.",
   "main": "main.js",
   "type": "module",
