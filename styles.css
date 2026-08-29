@@ -55,17 +55,19 @@
   text-transform: capitalize;
 }
 
-/* Agenda, Kanban, TaskList */
+/* Agenda, Kanban, TaskList, Widget */
 body.tnct-enabled.tnct-view-agenda .tnct-task-agenda[class*="tnct-color-"],
 body.tnct-enabled.tnct-view-kanban .tnct-task-kanban[class*="tnct-color-"],
-body.tnct-enabled.tnct-view-list .tnct-task-list[class*="tnct-color-"] {
+body.tnct-enabled.tnct-view-list .tnct-task-list[class*="tnct-color-"],
+body.tnct-enabled.tnct-view-widget .tnct-task-widget[class*="tnct-color-"] {
   background-color: oklch(from var(--color) l c h / var(--tnct-color-bg-alpha)) !important;
   border: 1px solid var(--color) !important;
 }
 
 body.tnct-enabled.tnct-view-agenda .tnct-task-agenda[class*="tnct-color-"]:hover,
 body.tnct-enabled.tnct-view-kanban .tnct-task-kanban[class*="tnct-color-"]:hover,
-body.tnct-enabled.tnct-view-list .tnct-task-list[class*="tnct-color-"]:hover {
+body.tnct-enabled.tnct-view-list .tnct-task-list[class*="tnct-color-"]:hover,
+body.tnct-enabled.tnct-view-widget .tnct-task-widget[class*="tnct-color-"]:hover {
   background-color: oklch(from var(--color) l c h / var(--tnct-color-bg-alpha-hover)) !important;
 }
 

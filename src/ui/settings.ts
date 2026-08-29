@@ -7,6 +7,7 @@ export interface TnctSettings {
     colorCalendar: boolean;
     colorKanban: boolean;
     colorList: boolean;
+    colorWidget: boolean;
     priorityStripe: boolean;
 }
 
@@ -16,6 +17,7 @@ export const DEFAULT_SETTINGS: TnctSettings = {
     colorCalendar: true,
     colorKanban: true,
     colorList: true,
+    colorWidget: true,
     priorityStripe: true,
 };
 
@@ -69,6 +71,11 @@ export class TnctSettingTab extends PluginSettingTab {
                         "colorList",
                         "List",
                         "Color tasks by their tag in the task list view.",
+                    ),
+                    toggle(
+                        "colorWidget",
+                        "Widget",
+                        "Color tasks by their tag in note task widgets.",
                     ),
                 ],
             },

@@ -39,4 +39,10 @@ export const VIEWS = [
         "[data-view-type='tasknotesTaskList'] .task-card",
         s => s.colorList,
     ),
+    new View(
+        "widget",
+        "Widget",
+        "[data-type='markdown'] .task-card-note-widget .task-card",
+        s => s.colorWidget,
+    ),
 ] as const;

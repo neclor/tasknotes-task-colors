@@ -38,7 +38,7 @@ Only recognized color names are used; other tags are ignored. If a task has seve
 | Setting | Default | What it does |
 | --- | --- | --- |
 | **Tag prefix** | *(empty)* | Restrict color tags to this prefix (e.g. `tnct-` - only `#tnct-red` counts). |
-| **Agenda / Calendar / Kanban / List** | on | Toggle coloring per view. |
+| **Agenda / Calendar / Kanban / List / Widget** | on | Toggle coloring per view. |
 | **Priority stripe** | on | Keep the calendar event's left edge in its priority color. |
 
 ---
