@@ -1,6 +1,7 @@
 # TaskNotes Task Colors
 
-Colors [TaskNotes](https://community.obsidian.md/plugins/tasknotes) tasks by a color-name property or tag, across the calendar, agenda, kanban, list and widget views.
+Colors [TaskNotes](https://community.obsidian.md/plugins/tasknotes) tasks by a color-name frontmatter property
+or tag across the calendar, agenda, kanban, list and widget views.
 
 ---
 
