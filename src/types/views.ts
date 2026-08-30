@@ -1,5 +1,5 @@
-import { VIEW_PREFIX, TASK_PREFIX } from "./dom";
 import type { TnctSettings } from "../ui/settings";
+import { TASK_PREFIX, VIEW_PREFIX } from "./dom";
 
 export class View {
     public constructor(

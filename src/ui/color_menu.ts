@@ -1,7 +1,9 @@
-import { App, FuzzyMatch, FuzzySuggestModal, Menu, TFile } from "obsidian";
+import { type App, type FuzzyMatch, FuzzySuggestModal, Menu, TFile } from "obsidian";
+
+import { colorSource } from "../core/color_source";
+import type TaskNotesColorTagsPlugin from "../main";
 import { COLOR_NAME_CLASS, COLOR_PREFIX, PALETTE, PATH_ATTRIBUTE, SUGGESTION_CLASS, SWATCH_CLASS } from "../types/dom";
 import { VIEWS } from "../types/views";
-import type TaskNotesColorTagsPlugin from "../main";
 
 interface TaskNotesApi {
     hasCapability?(name: string): boolean;
@@ -16,6 +18,8 @@ interface FoundTask {
     file: TFile;
     path: string;
 }
+
+const REMOVE = "- Remove color -";
 
 export function registerColorMenu(plugin: TaskNotesColorTagsPlugin): void {
     plugin.registerDomEvent(
@@ -97,8 +101,6 @@ function taskNotesApi(plugin: TaskNotesColorTagsPlugin): TaskNotesApi | null {
     return tasknotes?.api ?? null;
 }
 
-const REMOVE = "- Remove color -";
-
 class ColorModal extends FuzzySuggestModal<string> {
     private readonly pick: (color: string | null) => void;
 
@@ -127,23 +129,9 @@ class ColorModal extends FuzzySuggestModal<string> {
 }
 
 async function setColor(plugin: TaskNotesColorTagsPlugin, file: TFile, color: string | null): Promise<void> {
-    const prefix = plugin.settings.tagPrefix;
-    const colorTags = new Set(PALETTE.map(c => (prefix + c).toLowerCase()));
-
+    const source = colorSource(plugin.settings);
     await plugin.app.fileManager.processFrontMatter(
         file,
-        (frontmatter: Record<string, unknown>) => {
-            const raw = frontmatter.tags;
-            const current: string[] = Array.isArray(raw)
-                ? raw.map(String)
-                : typeof raw === "string"
-                  ? [raw]
-                  : [];
-
-            const kept = current.filter(tag => !colorTags.has(tag.toLowerCase()));
-            if (color !== null) kept.push(prefix + color);
-
-            frontmatter.tags = kept;
-        },
+        (frontmatter: Record<string, unknown>) => source.write(frontmatter, color),
     );
 }

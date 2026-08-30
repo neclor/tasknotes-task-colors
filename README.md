@@ -1,6 +1,6 @@
-# TaskNotes Color Tags
+# TaskNotes Task Colors
 
-Colors [TaskNotes](https://community.obsidian.md/plugins/tasknotes) tasks by a color-name tag, across the calendar, agenda, kanban and list views.
+Colors [TaskNotes](https://community.obsidian.md/plugins/tasknotes) tasks by a color-name property or tag, across the calendar, agenda, kanban, list and widget views.
 
 ---
 
@@ -17,19 +17,20 @@ Colors [TaskNotes](https://community.obsidian.md/plugins/tasknotes) tasks by a c
 
 Requires the [**TaskNotes**](https://community.obsidian.md/plugins/tasknotes) plugin and Obsidian **1.13+**.
 
-- [TaskNotes Color Tags](https://obsidian.md/plugins?id=tasknotes-color-tags)
-- [GitHub](https://github.com/neclor/tasknotes-color-tags)
+- [TaskNotes Task Colors](https://obsidian.md/plugins?id=tasknotes-task-colors)
+- [GitHub](https://github.com/neclor/tasknotes-task-colors)
 
 ---
 
 ## Usage
 
-1. Enable the plugin. By default all four views are colored.
-2. Give a task note a color tag - `#red`, `#blue`, `#zinc`, … (any [Tailwind color name](https://tailwindcss.com/docs/colors)).
-   The task is tinted with that color everywhere it appears.
-3. Or set it from the UI: **right‑click a task - Set color**, pick from the list, or *Remove color*.
+1. Enable the plugin. By default every view is colored.
+2. Give a task note a [Tailwind color name](https://tailwindcss.com/docs/colors) - `red`, `blue`, `zinc`, … The task is then tinted with that color everywhere it appears.
+   - **Property** source (default): set a frontmatter property, e.g. `tntc-color: red`.
+   - **Tag** source: add a tag, e.g. `#red`.
+3. Or set it from the UI: **right‑click a task → Set color**, pick from the list, or *Remove color*.
 
-Only recognized color names are used; other tags are ignored. If a task has several color tags, the last one wins.
+Only recognized color names are used; anything else is ignored. If a task carries several, the last one wins.
 
 ---
 
@@ -37,7 +38,9 @@ Only recognized color names are used; other tags are ignored. If a task has seve
 
 | Setting | Default | What it does |
 | --- | --- | --- |
-| **Tag prefix** | *(empty)* | Restrict color tags to this prefix (e.g. `tnct-` - only `#tnct-red` counts). |
+| **Source** | Property | Read the color from a frontmatter property or from a `#tag`. |
+| **Property name** | `tntc-color` | *(Property source)* Frontmatter property holding the color name. |
+| **Tag prefix** | *(empty)* | *(Tag source)* Restrict color tags to this prefix (e.g. `tntc-` - only `#tntc-red` counts). |
 | **Agenda / Calendar / Kanban / List / Widget** | on | Toggle coloring per view. |
 | **Priority stripe** | on | Keep the calendar event's left edge in its priority color. |
 

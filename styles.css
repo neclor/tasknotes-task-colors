@@ -1,48 +1,48 @@
-/* TaskNotes Color Tags */
+/* TaskNotes Task Colors */
 
 /* Tailwind v4 colors - https://tailwindcss.com/docs/colors */
 :root {
-  --tnct-color-red-500: oklch(63.7% 0.237 25.331);
-  --tnct-color-orange-500: oklch(70.5% 0.213 47.604);
-  --tnct-color-amber-500: oklch(76.9% 0.188 70.08);
-  --tnct-color-yellow-500: oklch(79.5% 0.184 86.047);
-  --tnct-color-lime-500: oklch(76.8% 0.233 130.85);
-  --tnct-color-green-500: oklch(72.3% 0.219 149.579);
-  --tnct-color-emerald-500: oklch(69.6% 0.17 162.48);
-  --tnct-color-teal-500: oklch(70.4% 0.14 182.503);
-  --tnct-color-cyan-500: oklch(71.5% 0.143 215.221);
-  --tnct-color-sky-500: oklch(68.5% 0.169 237.323);
-  --tnct-color-blue-500: oklch(62.3% 0.214 259.815);
-  --tnct-color-indigo-500: oklch(58.5% 0.233 277.117);
-  --tnct-color-violet-500: oklch(60.6% 0.25 292.717);
-  --tnct-color-purple-500: oklch(62.7% 0.265 303.9);
-  --tnct-color-fuchsia-500: oklch(66.7% 0.295 322.15);
-  --tnct-color-pink-500: oklch(65.6% 0.241 354.308);
-  --tnct-color-rose-500: oklch(64.5% 0.246 16.439);
-  --tnct-color-slate-500: oklch(55.4% 0.046 257.417);
-  --tnct-color-gray-500: oklch(55.1% 0.027 264.364);
-  --tnct-color-zinc-500: oklch(55.2% 0.016 285.938);
-  --tnct-color-neutral-500: oklch(55.6% 0 0);
-  --tnct-color-stone-500: oklch(55.3% 0.013 58.071);
-  --tnct-color-mauve-500: oklch(54.2% 0.034 322.5);
-  --tnct-color-olive-500: oklch(58% 0.031 107.3);
-  --tnct-color-mist-500: oklch(56% 0.021 213.5);
-  --tnct-color-taupe-500: oklch(54.7% 0.021 43.1);
-  --tnct-color-black: #000;
-  --tnct-color-white: #fff;
+  --tntc-color-red-500: oklch(63.7% 0.237 25.331);
+  --tntc-color-orange-500: oklch(70.5% 0.213 47.604);
+  --tntc-color-amber-500: oklch(76.9% 0.188 70.08);
+  --tntc-color-yellow-500: oklch(79.5% 0.184 86.047);
+  --tntc-color-lime-500: oklch(76.8% 0.233 130.85);
+  --tntc-color-green-500: oklch(72.3% 0.219 149.579);
+  --tntc-color-emerald-500: oklch(69.6% 0.17 162.48);
+  --tntc-color-teal-500: oklch(70.4% 0.14 182.503);
+  --tntc-color-cyan-500: oklch(71.5% 0.143 215.221);
+  --tntc-color-sky-500: oklch(68.5% 0.169 237.323);
+  --tntc-color-blue-500: oklch(62.3% 0.214 259.815);
+  --tntc-color-indigo-500: oklch(58.5% 0.233 277.117);
+  --tntc-color-violet-500: oklch(60.6% 0.25 292.717);
+  --tntc-color-purple-500: oklch(62.7% 0.265 303.9);
+  --tntc-color-fuchsia-500: oklch(66.7% 0.295 322.15);
+  --tntc-color-pink-500: oklch(65.6% 0.241 354.308);
+  --tntc-color-rose-500: oklch(64.5% 0.246 16.439);
+  --tntc-color-slate-500: oklch(55.4% 0.046 257.417);
+  --tntc-color-gray-500: oklch(55.1% 0.027 264.364);
+  --tntc-color-zinc-500: oklch(55.2% 0.016 285.938);
+  --tntc-color-neutral-500: oklch(55.6% 0 0);
+  --tntc-color-stone-500: oklch(55.3% 0.013 58.071);
+  --tntc-color-mauve-500: oklch(54.2% 0.034 322.5);
+  --tntc-color-olive-500: oklch(58% 0.031 107.3);
+  --tntc-color-mist-500: oklch(56% 0.021 213.5);
+  --tntc-color-taupe-500: oklch(54.7% 0.021 43.1);
+  --tntc-color-black: #000;
+  --tntc-color-white: #fff;
 
-  --tnct-color-bg-alpha: 0.15;
-  --tnct-color-bg-alpha-hover: 0.30;
+  --tntc-color-bg-alpha: 0.15;
+  --tntc-color-bg-alpha-hover: 0.30;
 }
 
 /* Color picker modal */
-.tnct-color-suggestion {
+.tntc-color-suggestion {
   display: flex;
   align-items: center;
   gap: 0.6em;
 }
 
-.tnct-color-swatch {
+.tntc-color-swatch {
   width: 0.95em;
   height: 0.95em;
   border-radius: 3px;
@@ -51,75 +51,75 @@
   flex-shrink: 0;
 }
 
-.tnct-color-name {
+.tntc-color-name {
   text-transform: capitalize;
 }
 
 /* Agenda, Kanban, TaskList, Widget */
-body.tnct-enabled.tnct-view-agenda .tnct-task-agenda[class*="tnct-color-"],
-body.tnct-enabled.tnct-view-kanban .tnct-task-kanban[class*="tnct-color-"],
-body.tnct-enabled.tnct-view-list .tnct-task-list[class*="tnct-color-"],
-body.tnct-enabled.tnct-view-widget .tnct-task-widget[class*="tnct-color-"] {
-  background-color: oklch(from var(--color) l c h / var(--tnct-color-bg-alpha)) !important;
+body.tntc-enabled.tntc-view-agenda .tntc-task-agenda[class*="tntc-color-"],
+body.tntc-enabled.tntc-view-kanban .tntc-task-kanban[class*="tntc-color-"],
+body.tntc-enabled.tntc-view-list .tntc-task-list[class*="tntc-color-"],
+body.tntc-enabled.tntc-view-widget .tntc-task-widget[class*="tntc-color-"] {
+  background-color: oklch(from var(--color) l c h / var(--tntc-color-bg-alpha)) !important;
   border: 1px solid var(--color) !important;
 }
 
-body.tnct-enabled.tnct-view-agenda .tnct-task-agenda[class*="tnct-color-"]:hover,
-body.tnct-enabled.tnct-view-kanban .tnct-task-kanban[class*="tnct-color-"]:hover,
-body.tnct-enabled.tnct-view-list .tnct-task-list[class*="tnct-color-"]:hover,
-body.tnct-enabled.tnct-view-widget .tnct-task-widget[class*="tnct-color-"]:hover {
-  background-color: oklch(from var(--color) l c h / var(--tnct-color-bg-alpha-hover)) !important;
+body.tntc-enabled.tntc-view-agenda .tntc-task-agenda[class*="tntc-color-"]:hover,
+body.tntc-enabled.tntc-view-kanban .tntc-task-kanban[class*="tntc-color-"]:hover,
+body.tntc-enabled.tntc-view-list .tntc-task-list[class*="tntc-color-"]:hover,
+body.tntc-enabled.tntc-view-widget .tntc-task-widget[class*="tntc-color-"]:hover {
+  background-color: oklch(from var(--color) l c h / var(--tntc-color-bg-alpha-hover)) !important;
 }
 
 /* Calendar */
-body.tnct-enabled.tnct-view-calendar .tnct-task-calendar[class*="tnct-color-"] {
-  background-color: oklch(from var(--color) l c h / var(--tnct-color-bg-alpha)) !important;
+body.tntc-enabled.tntc-view-calendar .tntc-task-calendar[class*="tntc-color-"] {
+  background-color: oklch(from var(--color) l c h / var(--tntc-color-bg-alpha)) !important;
   border-top-color: var(--color) !important;
   border-right-color: var(--color) !important;
   border-bottom-color: var(--color) !important;
 }
 
-body.tnct-enabled.tnct-view-calendar .tnct-task-calendar[class*="tnct-color-"]:hover {
-  background-color: oklch(from var(--color) l c h / var(--tnct-color-bg-alpha-hover)) !important;
+body.tntc-enabled.tntc-view-calendar .tntc-task-calendar[class*="tntc-color-"]:hover {
+  background-color: oklch(from var(--color) l c h / var(--tntc-color-bg-alpha-hover)) !important;
 }
 
-body.tnct-enabled.tnct-view-calendar .tnct-task-calendar[class*="tnct-color-"] .fc-event-main {
+body.tntc-enabled.tntc-view-calendar .tntc-task-calendar[class*="tntc-color-"] .fc-event-main {
   color: var(--color) !important;
 }
 
-body.tnct-enabled.tnct-view-calendar:not(.tnct-priority-stripe) .tnct-task-calendar[class*="tnct-color-"] {
+body.tntc-enabled.tntc-view-calendar:not(.tntc-priority-stripe) .tntc-task-calendar[class*="tntc-color-"] {
   border-left-color: var(--color) !important;
 }
 
-body.tnct-enabled.tnct-view-calendar.tnct-priority-stripe .tnct-task-calendar[class*="tnct-color-"] {
+body.tntc-enabled.tntc-view-calendar.tntc-priority-stripe .tntc-task-calendar[class*="tntc-color-"] {
   border-left-width: 6px;
 }
 
-.tnct-color-red { --color: var(--tnct-color-red-500); }
-.tnct-color-orange { --color: var(--tnct-color-orange-500); }
-.tnct-color-amber { --color: var(--tnct-color-amber-500); }
-.tnct-color-yellow { --color: var(--tnct-color-yellow-500); }
-.tnct-color-lime { --color: var(--tnct-color-lime-500); }
-.tnct-color-green { --color: var(--tnct-color-green-500); }
-.tnct-color-emerald { --color: var(--tnct-color-emerald-500); }
-.tnct-color-teal { --color: var(--tnct-color-teal-500); }
-.tnct-color-cyan { --color: var(--tnct-color-cyan-500); }
-.tnct-color-sky { --color: var(--tnct-color-sky-500); }
-.tnct-color-blue { --color: var(--tnct-color-blue-500); }
-.tnct-color-indigo { --color: var(--tnct-color-indigo-500); }
-.tnct-color-violet { --color: var(--tnct-color-violet-500); }
-.tnct-color-purple { --color: var(--tnct-color-purple-500); }
-.tnct-color-fuchsia { --color: var(--tnct-color-fuchsia-500); }
-.tnct-color-pink { --color: var(--tnct-color-pink-500); }
-.tnct-color-rose { --color: var(--tnct-color-rose-500); }
-.tnct-color-slate { --color: var(--tnct-color-slate-500); }
-.tnct-color-gray { --color: var(--tnct-color-gray-500); }
-.tnct-color-zinc { --color: var(--tnct-color-zinc-500); }
-.tnct-color-neutral { --color: var(--tnct-color-neutral-500); }
-.tnct-color-stone { --color: var(--tnct-color-stone-500); }
-.tnct-color-mauve { --color: var(--tnct-color-mauve-500); }
-.tnct-color-olive { --color: var(--tnct-color-olive-500); }
-.tnct-color-mist { --color: var(--tnct-color-mist-500); }
-.tnct-color-taupe { --color: var(--tnct-color-taupe-500); }
-.tnct-color-black { --color: var(--tnct-color-black); }
-.tnct-color-white { --color: var(--tnct-color-white); }
+.tntc-color-red { --color: var(--tntc-color-red-500); }
+.tntc-color-orange { --color: var(--tntc-color-orange-500); }
+.tntc-color-amber { --color: var(--tntc-color-amber-500); }
+.tntc-color-yellow { --color: var(--tntc-color-yellow-500); }
+.tntc-color-lime { --color: var(--tntc-color-lime-500); }
+.tntc-color-green { --color: var(--tntc-color-green-500); }
+.tntc-color-emerald { --color: var(--tntc-color-emerald-500); }
+.tntc-color-teal { --color: var(--tntc-color-teal-500); }
+.tntc-color-cyan { --color: var(--tntc-color-cyan-500); }
+.tntc-color-sky { --color: var(--tntc-color-sky-500); }
+.tntc-color-blue { --color: var(--tntc-color-blue-500); }
+.tntc-color-indigo { --color: var(--tntc-color-indigo-500); }
+.tntc-color-violet { --color: var(--tntc-color-violet-500); }
+.tntc-color-purple { --color: var(--tntc-color-purple-500); }
+.tntc-color-fuchsia { --color: var(--tntc-color-fuchsia-500); }
+.tntc-color-pink { --color: var(--tntc-color-pink-500); }
+.tntc-color-rose { --color: var(--tntc-color-rose-500); }
+.tntc-color-slate { --color: var(--tntc-color-slate-500); }
+.tntc-color-gray { --color: var(--tntc-color-gray-500); }
+.tntc-color-zinc { --color: var(--tntc-color-zinc-500); }
+.tntc-color-neutral { --color: var(--tntc-color-neutral-500); }
+.tntc-color-stone { --color: var(--tntc-color-stone-500); }
+.tntc-color-mauve { --color: var(--tntc-color-mauve-500); }
+.tntc-color-olive { --color: var(--tntc-color-olive-500); }
+.tntc-color-mist { --color: var(--tntc-color-mist-500); }
+.tntc-color-taupe { --color: var(--tntc-color-taupe-500); }
+.tntc-color-black { --color: var(--tntc-color-black); }
+.tntc-color-white { --color: var(--tntc-color-white); }

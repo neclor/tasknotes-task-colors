@@ -1,9 +1,9 @@
 {
-	"id": "tasknotes-color-tags",
-	"name": "TaskNotes Color Tags",
-	"version": "1.1.0",
+	"id": "tasknotes-task-colors",
+	"name": "TaskNotes Task Colors",
+	"version": "2.0.0",
 	"minAppVersion": "1.13.0",
-	"description": "Color TaskNotes tasks by a color-name tag across the calendar, agenda, kanban and list views.",
+	"description": "Color TaskNotes tasks by a color-name frontmatter property or tag across the calendar, agenda, kanban, list and widget views.",
 	"author": "neclor",
 	"authorUrl": "https://github.com/neclor",
 	"isDesktopOnly": false

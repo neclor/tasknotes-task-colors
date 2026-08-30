@@ -1,9 +1,10 @@
 import { Plugin } from "obsidian";
+
+import { TaskMarker } from "./core/task_marker";
 import { ENABLED_CLASS, PRIORITY_STRIPE_CLASS } from "./types/dom";
 import { VIEWS } from "./types/views";
-import { DEFAULT_SETTINGS, TnctSettingTab, type TnctSettings } from "./ui/settings";
 import { registerColorMenu } from "./ui/color_menu";
-import { TaskMarker } from "./core/task_marker";
+import { DEFAULT_SETTINGS, type TnctSettings, TnctSettingTab } from "./ui/settings";
 
 export default class TaskNotesColorTagsPlugin extends Plugin {
     public settings!: TnctSettings;

@@ -1,8 +1,12 @@
-import { App, PluginSettingTab, SettingDefinition, SettingDefinitionItem } from "obsidian";
+import { type App, PluginSettingTab, type SettingDefinition, type SettingDefinitionItem } from "obsidian";
+
+import { ColorSourceType, DEFAULT_PROPERTY } from "../core/color_source";
 import type TaskNotesColorTagsPlugin from "../main";
 
 export interface TnctSettings {
+    source: ColorSourceType;
     tagPrefix: string;
+    property: string;
     colorAgenda: boolean;
     colorCalendar: boolean;
     colorKanban: boolean;
@@ -12,7 +16,9 @@ export interface TnctSettings {
 }
 
 export const DEFAULT_SETTINGS: TnctSettings = {
+    source: ColorSourceType.Property,
     tagPrefix: "",
+    property: DEFAULT_PROPERTY,
     colorAgenda: true,
     colorCalendar: true,
     colorKanban: true,
@@ -35,15 +41,38 @@ export class TnctSettingTab extends PluginSettingTab {
         return [
             {
                 type: "group",
-                heading: "General",
+                heading: "Color source",
                 items: [
+                    {
+                        name: "Source",
+                        desc: "Where each task's color name is read from and written to.",
+                        control: {
+                            type: "dropdown",
+                            key: "source",
+                            options: {
+                                [ColorSourceType.Property]: "Property",
+                                [ColorSourceType.Tag]: "Tag",
+                            },
+                        },
+                    },
                     {
                         name: "Tag prefix",
                         desc: "Only tags starting with this prefix are treated as colors. Empty means bare color names like #red.",
+                        visible: () => this.plugin.settings.source === ColorSourceType.Tag,
                         control: {
                             type: "text",
                             key: "tagPrefix",
-                            placeholder: "e.g. tnct-",
+                            placeholder: "e.g. tntc-",
+                        },
+                    },
+                    {
+                        name: "Property name",
+                        desc: "Frontmatter property holding the color name, e.g. color: red.",
+                        visible: () => this.plugin.settings.source === ColorSourceType.Property,
+                        control: {
+                            type: "text",
+                            key: "property",
+                            placeholder: DEFAULT_PROPERTY,
                         },
                     },
                 ],
@@ -101,6 +130,7 @@ export class TnctSettingTab extends PluginSettingTab {
         (this.plugin.settings as unknown as Record<string, unknown>)[key] =
             value;
         await this.plugin.saveSettings();
+        if (key === "source") this.update();
     }
 }
 

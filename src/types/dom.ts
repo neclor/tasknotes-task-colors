@@ -1,4 +1,4 @@
-export const PREFIX = "tnct-";
+export const PREFIX = "tntc-";
 
 export const ENABLED_CLASS = `${PREFIX}enabled`;
 export const PRIORITY_STRIPE_CLASS = `${PREFIX}priority-stripe`;

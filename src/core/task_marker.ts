@@ -1,7 +1,9 @@
-import { App, CachedMetadata, TAbstractFile, TFile, parseFrontMatterTags } from "obsidian";
-import { PATH_ATTRIBUTE, PALETTE_SET, COLOR_PREFIX, MARKED_ATTRIBUTE, TASK_PREFIX } from "../types/dom";
-import { type View, VIEWS } from "../types/views";
+import { type App, type CachedMetadata, type TAbstractFile, TFile } from "obsidian";
+
 import type TaskNotesColorTagsPlugin from "../main";
+import { COLOR_PREFIX, MARKED_ATTRIBUTE, PATH_ATTRIBUTE, TASK_PREFIX } from "../types/dom";
+import { type View, VIEWS } from "../types/views";
+import { type ColorSource, colorSource } from "./color_source";
 
 export class TaskMarker {
     private readonly plugin: TaskNotesColorTagsPlugin;
@@ -55,49 +57,42 @@ export class TaskMarker {
     }
 
     private scan(): void {
+        const source: ColorSource = colorSource(this.plugin.settings);
         for (const view of VIEWS) {
             const enabled: boolean = view.enabled(this.plugin.settings);
             document
                 .querySelectorAll<HTMLElement>(view.selector)
                 .forEach(element =>
-                    enabled ? this.update(element, view) : clean(element),
+                    enabled ? this.update(element, view, source) : clean(element),
                 );
         }
     }
 
-    private update(element: HTMLElement, view: View): void {
-        const color_tags: Set<string> = new Set(
-            this.getColors(element).map(color => `${COLOR_PREFIX}${color}`),
+    private update(element: HTMLElement, view: View, source: ColorSource): void {
+        const wanted: Set<string> = new Set(
+            this.getColors(element, source).map(name => `${COLOR_PREFIX}${name}`),
         );
 
         for (const cls of Array.from(element.classList)) {
-            if (cls.startsWith(COLOR_PREFIX) && !color_tags.has(cls)) {
+            if (cls.startsWith(COLOR_PREFIX) && !wanted.has(cls)) {
                 element.classList.remove(cls);
             }
         }
 
-        if (color_tags.size === 0) {
+        if (wanted.size === 0) {
             clean(element);
             return;
         }
 
         addClass(element, view.taskClass);
-        for (const cls of color_tags) {
+        for (const cls of wanted) {
             addClass(element, cls);
         }
     }
 
-    private getColors(element: HTMLElement): string[] {
+    private getColors(element: HTMLElement, source: ColorSource): string[] {
         const cache: CachedMetadata | null = this.getCache(element);
-        if (cache === null) return [];
-
-        const prefix: string = this.plugin.settings.tagPrefix.toLowerCase();
-
-        return (parseFrontMatterTags(cache.frontmatter) ?? [])
-            .map(tag => tag.replace(/^#/, "").toLowerCase())
-            .filter(tag => prefix === "" || tag.startsWith(prefix))
-            .map(tag => tag.slice(prefix.length))
-            .filter(tag => PALETTE_SET.has(tag));
+        return cache === null ? [] : source.read(cache.frontmatter);
     }
 
     private getCache(element: HTMLElement): CachedMetadata | null {
