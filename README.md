@@ -49,12 +49,12 @@ Only recognized color names are used; anything else is ignored. If a task carrie
 
 ## Screenshots
 
-| Agenda | Calendar | Kanban | List |
-| ------ | -------- | ------ | ---- |
-| ![Agenda](media/agenda.png) | ![Calendar](media/calendar.png) | ![Kanban](media/kanban.png) | ![List](media/list.png) | ![Color picker](media/picker.png) |
+| Calendar |
+| -------- |
+| ![Calendar](media/calendar.png) |
 
-|Color picker |
-| ----------- |
-| ![Color picker](media/colors.png) |
+| Agenda | Kanban | List | Color picker |
+| ------ | ------ | ---- | ------------ |
+| ![Agenda](media/agenda.png) | ![Kanban](media/kanban.png) | ![List](media/list.png) | ![Color picker](media/colors.png) |
 
 ---
