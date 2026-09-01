@@ -50,11 +50,11 @@ Only recognized color names are used; anything else is ignored. If a task carrie
 ## Screenshots
 
 | Agenda | Calendar | Kanban | List |
-| --- | --- | --- | --- |
+| ------ | -------- | ------ | ---- |
 | ![Agenda](media/agenda.png) | ![Calendar](media/calendar.png) | ![Kanban](media/kanban.png) | ![List](media/list.png) | ![Color picker](media/picker.png) |
 
-| Settings | Color picker |
-| --- | --- |
-| ![Agenda](media/settings.png) | ![Color picker](media/colors.png) |
+|Color picker |
+| ----------- |
+| ![Color picker](media/colors.png) |
 
 ---
