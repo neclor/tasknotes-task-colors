@@ -42,8 +42,8 @@ Only recognized color names are used; anything else is ignored. If a task carrie
 | **Source** | Property | Read the color from a frontmatter property or from a `#tag`. |
 | **Property name** | `tntc-color` | *(Property source)* Frontmatter property holding the color name. |
 | **Tag prefix** | *(empty)* | *(Tag source)* Restrict color tags to this prefix (e.g. `tntc-` - only `#tntc-red` counts). |
-| **Agenda / Calendar / Kanban / List / Widget** | on | Toggle coloring per view. |
 | **Priority stripe** | on | Keep the calendar event's left edge in its priority color. |
+| **Agenda / Calendar / Kanban / List / Widget** | on | Toggle coloring per view. |
 
 ---
 
