@@ -1,6 +1,6 @@
 {
   "name": "tasknotes-task-colors",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Color TaskNotes tasks by a color-name frontmatter property or tag across the calendar, agenda, kanban, list and widget views.",
   "main": "main.js",
   "type": "module",
