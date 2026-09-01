@@ -33,6 +33,9 @@
 
   --tntc-color-bg-alpha: 0.20;
   --tntc-color-bg-alpha-hover: 0.24;
+
+  --tntc-color-bg-due-alpha: 0.4;
+  --tntc-color-bg-due-alpha-hover: 0.44;
 }
 
 /* Color picker modal */
@@ -98,9 +101,13 @@ body.tntc-enabled.tntc-view-calendar .tntc-task-calendar[class*="tntc-color-"].f
   outline-color: var(--color) !important;
 }
 
-/* Due - border and text only, no fill */
+/* Due */
 body.tntc-enabled.tntc-view-calendar .tntc-task-calendar[class*="tntc-color-"][data-event-type="due"] {
-  background-color: transparent !important;
+  background-color: oklch(from var(--color) l c h / var(--tntc-color-bg-due-alpha)) !important;
+}
+
+body.tntc-enabled.tntc-view-calendar .tntc-task-calendar[class*="tntc-color-"][data-event-type="due"]:hover {
+  background-color: oklch(from var(--color) l c h / var(--tntc-color-bg-due-alpha-hover)) !important;
 }
 
 /* Priority stripe */
