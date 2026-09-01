@@ -79,6 +79,17 @@ export class TnctSettingTab extends PluginSettingTab {
             },
             {
                 type: "group",
+                heading: "Priority",
+                items: [
+                    toggle(
+                        "priorityStripe",
+                        "Priority stripe",
+                        "Keep the left edge of calendar event in its priority color.",
+                    ),
+                ],
+            },
+            {
+                type: "group",
                 heading: "Views",
                 items: [
                     toggle(
@@ -105,17 +116,6 @@ export class TnctSettingTab extends PluginSettingTab {
                         "colorWidget",
                         "Widget",
                         "Color tasks by their tag in note task widgets.",
-                    ),
-                ],
-            },
-            {
-                type: "group",
-                heading: "Priority",
-                items: [
-                    toggle(
-                        "priorityStripe",
-                        "Priority stripe",
-                        "Keep the left edge of calendar event in its priority color.",
                     ),
                 ],
             },
