@@ -7,10 +7,22 @@ or tag across the calendar, agenda, kanban, list and widget views.
 
 ## Contents
 
+- [Screenshots](#screenshots)
 - [Download](#download)
 - [Usage](#usage)
 - [Settings](#settings)
-- [Screenshots](#screenshots)
+
+---
+
+## Screenshots
+
+| Calendar |
+| -------- |
+| ![Calendar](media/calendar.png) |
+
+| Agenda | Kanban | List | Color picker |
+| ------ | ------ | ---- | ------------ |
+| ![Agenda](media/agenda.png) | ![Kanban](media/kanban.png) | ![List](media/list.png) | ![Color picker](media/colors.png) |
 
 ---
 
@@ -44,17 +56,5 @@ Only recognized color names are used; anything else is ignored. If a task carrie
 | **Tag prefix** | *(empty)* | *(Tag source)* Restrict color tags to this prefix (e.g. `tntc-` - only `#tntc-red` counts). |
 | **Priority stripe** | on | Keep the calendar event's left edge in its priority color. |
 | **Agenda / Calendar / Kanban / List / Widget** | on | Toggle coloring per view. |
-
----
-
-## Screenshots
-
-| Calendar |
-| -------- |
-| ![Calendar](media/calendar.png) |
-
-| Agenda | Kanban | List | Color picker |
-| ------ | ------ | ---- | ------------ |
-| ![Agenda](media/agenda.png) | ![Kanban](media/kanban.png) | ![List](media/list.png) | ![Color picker](media/colors.png) |
 
 ---
